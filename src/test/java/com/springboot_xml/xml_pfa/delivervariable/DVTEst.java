@@ -14,7 +14,12 @@ package com.springboot_xml.xml_pfa.delivervariable;
  */
 public class DVTEst {
     private String var;
-    public void deliver(){
 
+    public void deliver(){
+        var = "这个为什么是空的呢？";
+    }
+
+    public String getVar() {
+        return var;
     }
 }

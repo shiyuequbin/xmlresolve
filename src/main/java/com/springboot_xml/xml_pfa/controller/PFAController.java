@@ -34,4 +34,7 @@ public class PFAController {
         pfaService.savePFA(path);
     }
 
+    public String getPath() {
+        return path;
+    }
 }
