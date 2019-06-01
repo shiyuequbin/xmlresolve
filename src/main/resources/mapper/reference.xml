@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot_xml.xml_pfa.mapper.ReferenceMapper">
+    <resultMap id="BaseResultMap" type="com.springboot_xml.xml_pfa.domain.Reference" >
+        <id column="ID" property="ID" jdbcType="INTEGER" />
+        <result column="SANCTIONSREFERENCES_ID" property="SANCTIONSREFERENCES_ID" jdbcType="INTEGER" />
+        <result column="REFERENCE_SINCEDAY" property="REFERENCE_SINCEDAY" jdbcType="VARCHAR" />
+        <result column="REFERENCE_SINCEMONTH" property="REFERENCE_SINCEMONTH" jdbcType="VARCHAR" />
+        <result column="REFERENCE_SINCEYEAR" property="REFERENCE_SINCEYEAR" jdbcType="VARCHAR" />
+        <result column="REFERENCE_TODAY" property="REFERENCE_TODAY" jdbcType="VARCHAR" />
+        <result column="REFERENCE_TOMONTH" property="REFERENCE_TOMONTH" jdbcType="VARCHAR" />
+        <result column="REFERENCE_TOYEAR" property="REFERENCE_TOYEAR" jdbcType="VARCHAR" />
+        <result column="REFERENCE_REFERENCEVALUE" property="REFERENCE_REFERENCEVALUE" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE"  property="insertDate"  jdbcType="DATE"/>
+       <!-- <result column="PERSON_PROFILENOTES" property="PERSON_PROFILENOTES" javaType="java.sql.Blob" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler" />
+        <result column="INERT_DATE"  property="insertDate"  jdbcType="DATE"/>-->
+
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+       ID,SANCTIONSREFERENCES_ID,REFERENCE_SINCEDAY,REFERENCE_SINCEMONTH,REFERENCE_SINCEYEAR,REFERENCE_TODAY,REFERENCE_TOMONTH,REFERENCE_TOYEAR,REFERENCE_REFERENCEVALUE,INSERT_DATE
+    </sql>
+    <insert id="insert" parameterType="com.springboot_xml.xml_pfa.domain.Reference">
+        insert into TBL_REFERENCE (
+        ID,SANCTIONSREFERENCES_ID,REFERENCE_SINCEDAY,REFERENCE_SINCEMONTH,REFERENCE_SINCEYEAR,REFERENCE_TODAY,REFERENCE_TOMONTH,REFERENCE_TOYEAR,REFERENCE_REFERENCEVALUE,INSERT_DATE
+        )
+        values
+        (#{ID},#{SANCTIONSREFERENCES_ID},#{REFERENCE_SINCEDAY},#{REFERENCE_SINCEMONTH},#{REFERENCE_SINCEYEAR},#{REFERENCE_TODAY},#{REFERENCE_TOMONTH},#{REFERENCE_TOYEAR},#{REFERENCE_REFERENCEVALUE},#{insertDate})
+       <!-- <foreach collection="list" item="Person" separator=",">
+            (#{personId},#{Person.PFA_ID},#{Person.PERSON_ID},#{Person.PERSON_ACTION},#{Person.PERSON_DATE},
+            #{Person.PERSON_GENDER},#{Person.PERSON_ACTIVESTATUS},
+            #{Person.id},#{Person.PERSON_PROFILENOTES},#{Person.insertDate})
+        </foreach>-->
+    </insert>
+</mapper>

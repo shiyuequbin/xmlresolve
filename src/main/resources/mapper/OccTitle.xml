@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot_xml.xml_pfa.mapper.OccTitleMapper">
+    <resultMap id="BaseResultMap" type="com.springboot_xml.xml_pfa.domain.OccTitle" >
+        <id column="ID" property="ID" jdbcType="INTEGER" />
+        <result column="ROLES_ID" property="ROLES_ID" jdbcType="INTEGER" />
+        <result column="OCCTITLE_SINCEDAY" property="OCCTITLE_SINCEDAY" jdbcType="VARCHAR" />
+        <result column="OCCTITLE_SINCEMONTH" property="OCCTITLE_SINCEMONTH" jdbcType="VARCHAR" />
+        <result column="OCCTITLE_SINCEYEAR" property="OCCTITLE_SINCEYEAR" jdbcType="VARCHAR" />
+        <result column="OCCTITLE_TODAY" property="OCCTITLE_TODAY" jdbcType="VARCHAR" />
+        <result column="OCCTITLE_TOMONTH" property="OCCTITLE_TOMONTH" jdbcType="VARCHAR" />
+        <result column="OCCTITLE_TOYEAR" property="OCCTITLE_TOYEAR" jdbcType="VARCHAR" />
+        <result column="OCCTITLE_OCCCAT" property="OCCTITLE_OCCCAT" jdbcType="VARCHAR" />
+        <result column="OCCTITLE_OCCTITLEVALUE" property="OCCTITLE_OCCTITLEVALUE" jdbcType="VARCHAR" />
+        <result column="INSERT_DATE"  property="insertDate"  jdbcType="DATE"/>
+       <!-- <result column="PERSON_PROFILENOTES" property="PERSON_PROFILENOTES" javaType="java.sql.Blob" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler" />
+        <result column="INERT_DATE"  property="insertDate"  jdbcType="DATE"/>-->
+
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+       ID,ROLES_ID,OCCTITLE_SINCEDAY,OCCTITLE_SINCEMONTH,OCCTITLE_SINCEYEAR,OCCTITLE_TODAY,OCCTITLE_TOMONTH,OCCTITLE_TOYEAR,OCCTITLE_OCCCAT,OCCTITLE_OCCTITLEVALUE,INSERT_DATE
+    </sql>
+    <insert id="insert" parameterType="com.springboot_xml.xml_pfa.domain.OccTitle">
+        insert into TBL_OCCTITLE (
+        ID,ROLES_ID,OCCTITLE_SINCEDAY,OCCTITLE_SINCEMONTH,OCCTITLE_SINCEYEAR,OCCTITLE_TODAY,OCCTITLE_TOMONTH,OCCTITLE_TOYEAR,OCCTITLE_OCCCAT,OCCTITLE_OCCTITLEVALUE,INSERT_DATE
+        )
+        values
+        (#{ID},#{ROLES_ID},#{OCCTITLE_SINCEDAY},#{OCCTITLE_SINCEMONTH},#{OCCTITLE_SINCEYEAR},#{OCCTITLE_TODAY},#{OCCTITLE_TOMONTH},#{OCCTITLE_TOYEAR},#{OCCTITLE_OCCCAT},#{OCCTITLE_OCCTITLEVALUE},#{insertDate})
+       <!-- <foreach collection="list" item="Person" separator=",">
+            (#{personId},#{Person.PFA_ID},#{Person.PERSON_ID},#{Person.PERSON_ACTION},#{Person.PERSON_DATE},
+            #{Person.PERSON_GENDER},#{Person.PERSON_ACTIVESTATUS},
+            #{Person.id},#{Person.PERSON_PROFILENOTES},#{Person.insertDate})
+        </foreach>-->
+    </insert>
+</mapper>

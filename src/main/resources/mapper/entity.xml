@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot_xml.xml_pfa.mapper.EntityMapper">
+    <resultMap id="BaseResultMap" type="com.springboot_xml.xml_pfa.domain.Entity" >
+        <id column="ID" property="ID" jdbcType="INTEGER" />
+        <result column="PFA_ID" property="PFA_ID" jdbcType="INTEGER" />
+        <result column="ENTITY_ID" property="ENTITY_ID" jdbcType="VARCHAR" />
+        <result column="ENTITY_ACTION" property="ENTITY_ACTION" jdbcType="VARCHAR" />
+        <result column="ENTITY_DATE" property="ENTITY_DATE" jdbcType="VARCHAR" />
+        <result column="ENTITY_ACTIVESTATUS" property="ENTITY_ACTIVESTATUS" jdbcType="VARCHAR" />
+        <result column="ENTITY_PROFILENOTES" property="ENTITY_PROFILENOTES"  jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler" />
+        <result column="INSERT_DATE"  property="insertDate"  jdbcType="DATE"/>
+       <!-- <result column="PERSON_PROFILENOTES" property="PERSON_PROFILENOTES" javaType="java.sql.Blob" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler" />
+        <result column="INERT_DATE"  property="insertDate"  jdbcType="DATE"/>-->
+
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+       ID,PFA_ID,ENTITY_ID,ENTITY_ACTION,ENTITY_DATE,ENTITY_ACTIVESTATUS,ENTITY_PROFILENOTES,INSERT_DATE
+    </sql>
+    <insert id="insert" parameterType="com.springboot_xml.xml_pfa.domain.Entity">
+        insert into TBL_ENTITY (
+        ID,PFA_ID,ENTITY_ID,ENTITY_ACTION,ENTITY_DATE,ENTITY_ACTIVESTATUS,ENTITY_PROFILENOTES,INSERT_DATE
+        )
+        values
+        (#{ID},#{PFA_ID},#{ENTITY_ID},#{ENTITY_ACTION},#{ENTITY_DATE},#{ENTITY_ACTIVESTATUS},#{ENTITY_PROFILENOTES,jdbcType=BLOB},#{insertDate})
+       <!-- <foreach collection="list" item="Person" separator=",">
+            (#{personId},#{Person.PFA_ID},#{Person.PERSON_ID},#{Person.PERSON_ACTION},#{Person.PERSON_DATE},
+            #{Person.PERSON_GENDER},#{Person.PERSON_ACTIVESTATUS},
+            #{Person.id},#{Person.PERSON_PROFILENOTES},#{Person.insertDate})
+        </foreach>-->
+    </insert>
+</mapper>

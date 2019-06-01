@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot_xml.xml_pfa.mapper.PersonMapper">
+    <resultMap id="BaseResultMap" type="com.springboot_xml.xml_pfa.domain.Person" >
+        <id column="ID" property="ID" jdbcType="INTEGER" />
+        <result column="PFA_ID" property="PFA_ID" jdbcType="INTEGER" />
+        <result column="PERSON_ID" property="PERSON_ID" jdbcType="VARCHAR" />
+        <result column="PERSON_ACTION" property="PERSON_ACTION" jdbcType="VARCHAR" />
+        <result column="PERSON_DATE" property="PERSON_DATE" jdbcType="VARCHAR" />
+        <result column="PERSON_GENDER" property="PERSON_GENDER" jdbcType="VARCHAR" />
+        <result column="PERSON_ACTIVESTATUS" property="PERSON_ACTIVESTATUS" jdbcType="VARCHAR" />
+        <result column="PERSON_DECEASED" property="PERSON_DECEASED" jdbcType="VARCHAR" />
+        <result column="PERSON_PROFILENOTES" property="PERSON_PROFILENOTES"  jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler"  />
+        <result column="INSERT_DATE"  property="insertDate"  jdbcType="DATE"/>
+       <!-- <result column="PERSON_PROFILENOTES" property="PERSON_PROFILENOTES" javaType="java.sql.Blob" jdbcType="BLOB" typeHandler="org.apache.ibatis.type.BlobTypeHandler" />
+        <result column="INERT_DATE"  property="insertDate"  jdbcType="DATE"/>-->
+
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+       ID,PFA_ID,PERSON_ID,PERSON_ACTION,PERSON_DATE,PERSON_GENDER,PERSON_ACTIVESTATUS,PERSON_DECEASED,PERSON_PROFILENOTES,INSERT_DATE
+    </sql>
+    <insert id="insert" parameterType="com.springboot_xml.xml_pfa.domain.Person">
+        insert into TBL_PERSON (
+        ID,PFA_ID,PERSON_ID,PERSON_ACTION,PERSON_DATE,PERSON_GENDER,PERSON_ACTIVESTATUS,PERSON_DECEASED,PERSON_PROFILENOTES,INSERT_DATE
+        )
+        values
+        (#{ID},#{PFA_ID},#{PERSON_ID},#{PERSON_ACTION},#{PERSON_DATE},#{PERSON_GENDER},#{PERSON_ACTIVESTATUS},#{PERSON_DECEASED},#{PERSON_PROFILENOTES,jdbcType=BLOB},#{insertDate})
+       <!-- <foreach collection="list" item="Person" separator=",">
+            (#{personId},#{Person.PFA_ID},#{Person.PERSON_ID},#{Person.PERSON_ACTION},#{Person.PERSON_DATE},
+            #{Person.PERSON_GENDER},#{Person.PERSON_ACTIVESTATUS},
+            #{Person.id},#{Person.PERSON_PROFILENOTES},#{Person.insertDate})
+        </foreach>-->
+    </insert>
+</mapper>
